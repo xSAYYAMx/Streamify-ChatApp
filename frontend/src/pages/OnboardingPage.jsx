@@ -8,6 +8,7 @@ import { LANGUAGES } from "../constants";
 
 const OnboardingPage = () => {
   const { authUser } = useAuthUser();
+  
   const queryClient = useQueryClient();
 
   const [formstate, setFormstate] = useState({

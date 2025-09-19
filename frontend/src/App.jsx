@@ -16,7 +16,7 @@ import { useThemeStore } from "./store/useThemeStore.js";
 const App = () => {
   //tanstack query crash course
   const { isLoading, authUser } = useAuthUser();
-  const {theme, setTheme} = useThemeStore()
+  const { theme, setTheme } = useThemeStore();
 
   const isAuthenticated = Boolean(authUser);
   const isOnboarded = authUser?.isOnboarded;
@@ -101,12 +101,14 @@ const App = () => {
           element={
             isAuthenticated ? (
               !isOnboarded ? (
-                <Navigate to="/onboarding" />
+                <Layout showSidebar={false}>
+                  <OnboardingPage />
+                </Layout>
               ) : (
                 <Navigate to="/" />
               )
             ) : (
-              <Navigate to="/login" />
+              <LoginPage />
             )
           }
         />
